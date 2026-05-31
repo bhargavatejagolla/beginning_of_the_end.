@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"components\\\\RiskHeatmap.tsx -> ./LeafletMap\":{\"id\":\"components\\\\RiskHeatmap.tsx -> ./LeafletMap\",\"files\":[\"static/css/_app-pages-browser_components_LeafletMap_tsx.css\",\"static/chunks/_app-pages-browser_components_LeafletMap_tsx.js\"]}}"

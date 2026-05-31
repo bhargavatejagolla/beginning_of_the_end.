@@ -1,0 +1,56 @@
+version: "3.9"
+
+services:
+  api:
+    build: ./backend
+    container_name: cybershield-api
+    command: bash -c "pip install aiosqlite faker pyarrow && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - PYTHONPATH=/app:/app/app
+    env_file:
+      - .env
+    depends_on:
+      - neo4j
+    networks:
+      - cybershield-net
+
+  neo4j:
+    image: neo4j:5.20.0-community
+    container_name: cybershield-neo4j
+    ports:
+      - "7474:7474"  # HTTP
+      - "7687:7687"  # Bolt
+    environment:
+      - NEO4J_AUTH=neo4j/password
+    volumes:
+      - neo4j-data:/data
+      - neo4j-logs:/logs
+    networks:
+      - cybershield-net
+
+  frontend:
+    build: ./frontend
+    container_name: cybershield-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules  # anonymous volume to avoid overwriting
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - api
+    networks:
+      - cybershield-net
+
+volumes:
+  neo4j-data:
+  neo4j-logs:
+
+networks:
+  cybershield-net:
+    driver: bridge
