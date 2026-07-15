@@ -1,3 +1,3 @@
-### if you wanna know  aabout the project clone it and do it 
-This the repo regarding the IITH BOI Hackathon<br>
-The above files even has the complete document of that particular hackathon
+About the Project
+
+This repository contains the project developed for the IIT Hyderabad × Bank of India Hackathon. It includes the complete source code, project documentation, problem statement, proposed solution, and other hackathon-related resources. 
