@@ -1,3 +1,3 @@
 ## Explore the Project
 
-To learn more about this project, clone the repository and explore the source code. The repository also includes detailed documentation covering the problem statement, proposed solution, implementation, and overall project workflow.
+Clone the repository to explore the project. The documentation provides a complete overview of the problem statement, solution, implementation, and workflow.
